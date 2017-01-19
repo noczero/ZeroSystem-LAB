@@ -1,5 +1,5 @@
 ﻿<?php
-    $koneksi = new mysqli("localhost","root","","inventaris");
+    $koneksi = new mysqli("localhost","root","noczero","inventaris");
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -42,7 +42,6 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
 				<li class="text-center">
                     <img src="assets/img/find_user.png" class="user-image img-responsive"/>
 					</li>
-				
 					
                     <li><a href="index.php"><i class="fa fa-dashboard fa-3x"></i> Home </a> </li>
                     <li><a href="index.php?halaman=barang"><i class="fa fa-dashboard fa-3x"></i> Barang </a> </li>
