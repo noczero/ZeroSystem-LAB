@@ -1,6 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<?php include 'config/db.php' ?>
+<!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -30,6 +30,12 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="css/themes/all-themes.css" rel="stylesheet" />
+
+    <!-- JQuery DataTable Css -->
+    <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css"/>
+ 
 </head>
 
 <body class="theme-red">
@@ -128,8 +134,12 @@
                     <img src="images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</div>
-                    <div class="email">admin.doe@example.com</div>
+                    <!-- ambil data user -->
+                    <?php $admin = $koneksi->query("SELECT * FROM admin") ;
+                        $pecah = $admin->fetch_assoc();
+                    ?>
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome, <?php echo $pecah['nama_admin']; ?></div>
+                    <div class="email"><?php echo $pecah['email_admin']; ?></div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -228,7 +238,7 @@
                     } elseif ($_GET['halaman']=='barang') {
                         include 'barang.php';
                     }elseif ($_GET['halaman']=='peminjaman') {
-                        include 'peminjaman.php';
+                        include 'pinjam.php';
                     }
                 }else{
                     include 'home.php';
@@ -237,7 +247,8 @@
 
         </div>
     </section>
-
+    
+    
     <!-- Jquery Core Js -->
     <script src="plugins/jquery/jquery.js"></script>
 
@@ -262,14 +273,27 @@
 
     <!-- ChartJs -->
     <script src="plugins/chartjs/Chart.bundle.js"></script>
+     <!-- Jquery DataTable Plugin Js -->
+    
+    
+    <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+
 
     <!-- Flot Charts Plugin Js -->
-    <script src="plugins/flot-charts/jquery.flot.js"></script>
+   <!--  <script src="plugins/flot-charts/jquery.flot.js"></script>
     <script src="plugins/flot-charts/jquery.flot.resize.js"></script>
     <script src="plugins/flot-charts/jquery.flot.pie.js"></script>
     <script src="plugins/flot-charts/jquery.flot.categories.js"></script>
     <script src="plugins/flot-charts/jquery.flot.time.js"></script>
-
+ -->
     <!-- Sparkline Chart Plugin Js -->
     <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
 
@@ -285,23 +309,11 @@
     <!-- Data Tables -->
     <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
 
-      <!-- Jquery DataTable Plugin Js -->
-    <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
-    <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+     
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
+
 </body>
 
-<script>
- $(document).ready( function () {
-    $('#tableAsisten').DataTable();
-  });
-
-</script>
 
 </html>

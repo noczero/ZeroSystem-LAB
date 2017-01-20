@@ -1,5 +1,5 @@
-﻿<?php
-    $koneksi = new mysqli("localhost","root","noczero","inventaris");
+<?php
+    $koneksi = new mysqli("localhost","root","","inventaris");
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -28,7 +28,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">APTRG Lab</a> 
+                <a class="navbar-brand" href="index.html">APTRG Lab
+                </a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
@@ -42,6 +43,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
 				<li class="text-center">
                     <img src="assets/img/find_user.png" class="user-image img-responsive"/>
 					</li>
+				
 					
                     <li><a href="index.php"><i class="fa fa-dashboard fa-3x"></i> Home </a> </li>
                     <li><a href="index.php?halaman=barang"><i class="fa fa-dashboard fa-3x"></i> Barang </a> </li>
@@ -93,6 +95,12 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
       <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
     
-   
+    <script>
+     $(document).ready( function () {
+        $('#tableAsisten').DataTable();
+    });
+    </script>
 </body>
+
+
 </html>

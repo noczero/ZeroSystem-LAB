@@ -1,6 +1,6 @@
 <div class="card">
         <div class="header">
-            <h2>DATA ASISTEN</h2>
+            <h2>DATA PEMINJAMAN</h2>
             <ul class="header-dropdown m-r--5">
                 <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -20,34 +20,31 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Tanggal Lahir</th>
-                                        <th>Alamat</th>
-                                        <th>Jurusan</th>
-                                        <th>Divisi</th>
-                                        <th>No Telepon</th>
+                                        <th>Nama Peminjam</th>
+                                        <th>Nama Barang </th>
+                                        <th>Tanggal Pinjam</th>
+                                        <th>Tanggal Kembali</th>
                                     </tr>
                                 </thead>
                         
                                 <tbody>
                                     <?php 
                                         $number = 1;
-                                        $ambil = $koneksi->query("SELECT * FROM asisten");
+                                       // $ambil = $koneksi->query("SELECT * FROM peminjaman JOIN asisten ON peminjaman.id_asisten = asisten.id_asisten JOIN detil_pinjam ON detil_pinjam.id_pinjam = peminjaman.id_pinjam JOIN barang ON barang.id_barang = peminjaman.id_barang");
+
+                                        $ambil = $koneksi->query("SELECT * FROM peminjaman JOIN asisten ON peminjaman.id_asisten = asisten.id_asisten JOIN detil_pinjam ON peminjaman.id_pinjam = detil_pinjam.id_pinjam JOIN barang ON detil_pinjam.id_barang = barang.id_barang ORDER by peminjaman.tgl_pinjam");
 
                                         while ($pecah = $ambil->fetch_assoc()) {
                                        
                                      ?>
-
-                                     <tr>
-                                         <td><?php echo $number ?></td>
-                                         <td><?php echo $pecah['nama_asisten']; ?></td>
-                                         <td><?php echo $pecah['birthdate_asisten'] ?></td>
-                                         <td><?php echo $pecah['alamat_asisten'] ?></td>
-                                         <td><?php echo $pecah['jurusan_asisten'] ?></td>
-                                         <td><?php echo $pecah['divisi_asisten'] ?></td>
-                                         <td><?php echo $pecah['notel_asisten'] ?></td>
-                                     </tr>
-                                
+                                        
+                                    <tr>
+                                        <td><?php echo $number ?></td>
+                                        <td> <?php echo $pecah['nama_asisten']; ?></td>
+                                        <td><?php echo $pecah['nama_barang']; ?></td>
+                                        <td><?php echo $pecah['tgl_pinjam']; ?></td>
+                                        <td><?php echo $pecah['tgl_kembali']; ?></td>
+                                    </tr>
 
 
                                     <?php 
@@ -55,8 +52,6 @@
                                     }
                                      ?>
                                 </tbody>
-
-
 
         </div>
 </div>

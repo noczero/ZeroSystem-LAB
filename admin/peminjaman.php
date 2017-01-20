@@ -15,7 +15,7 @@
 	<tbody>
 	<?php 
 		$nomor = 1;
-		$ambil = $koneksi->query("SELECT * FROM peminjaman JOIN user ON peminjaman.id_user = user.id_user JOIN peminjaman_barang ON peminjaman.id_peminjaman = peminjaman_barang.id_peminjaman JOIN barang ON peminjaman_barang.id_barang = barang.id_barang" );
+		$ambil = $koneksi->query("SELECT * FROM peminjaman JOIN user ON peminjaman.id_asisten = user.id_asisten JOIN peminjaman_barang ON peminjaman.id_peminjaman = peminjaman_barang.id_peminjaman JOIN barang ON peminjaman_barang.id_barang = barang.id_barang" );
 		while ($pecah = $ambil->fetch_assoc()) {
 	 ?>
 

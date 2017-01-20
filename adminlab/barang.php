@@ -1,6 +1,6 @@
 <div class="card">
         <div class="header">
-            <h2>DATA ASISTEN</h2>
+            <h2>DATA BARANG</h2>
             <ul class="header-dropdown m-r--5">
                 <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -20,19 +20,19 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Tanggal Lahir</th>
-                                        <th>Alamat</th>
-                                        <th>Jurusan</th>
-                                        <th>Divisi</th>
-                                        <th>No Telepon</th>
+                                        <th>Nama Barang</th>
+                                        <th>Deskripsi</th>
+                                        <th>Jumlah</th>
+                                        <th>Kategori</th>
+                                        <th>Foto</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                         
                                 <tbody>
                                     <?php 
                                         $number = 1;
-                                        $ambil = $koneksi->query("SELECT * FROM asisten");
+                                        $ambil = $koneksi->query("SELECT * FROM barang");
 
                                         while ($pecah = $ambil->fetch_assoc()) {
                                        
@@ -40,12 +40,13 @@
 
                                      <tr>
                                          <td><?php echo $number ?></td>
-                                         <td><?php echo $pecah['nama_asisten']; ?></td>
-                                         <td><?php echo $pecah['birthdate_asisten'] ?></td>
-                                         <td><?php echo $pecah['alamat_asisten'] ?></td>
-                                         <td><?php echo $pecah['jurusan_asisten'] ?></td>
-                                         <td><?php echo $pecah['divisi_asisten'] ?></td>
-                                         <td><?php echo $pecah['notel_asisten'] ?></td>
+                                         <td><?php echo $pecah['nama_barang']; ?></td>
+                                         <td><?php echo $pecah['deskripsi_barang'] ?></td>
+                                         <td><?php echo $pecah['jumlah_barang'] ?></td>
+                                         <td><?php echo $pecah['kategori_barang'] ?></td>
+                                         <td><?php echo $pecah['foto_barang'] ?></td>
+
+                                         <td><a class="btn btn-info" href="">Edit </a><a class=" btn btn-danger" href="hap"> Delete </a></td>
                                      </tr>
                                 
 
@@ -55,8 +56,6 @@
                                     }
                                      ?>
                                 </tbody>
-
-
 
         </div>
 </div>

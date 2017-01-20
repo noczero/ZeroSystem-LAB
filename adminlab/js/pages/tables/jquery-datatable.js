@@ -1,5 +1,7 @@
 $(function () {
     $('.js-basic-example').DataTable();
+    //$('#example').DataTable();
+    //$('#dataAsisten').DataTable();
 
     //Exportable table
     $('.js-exportable').DataTable({
